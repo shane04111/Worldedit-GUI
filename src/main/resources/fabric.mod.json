@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "worldeditgui",
+  "version": "${version}",
+  "name": "Worldedit-GUI",
+  "description": "",
+  "authors": [],
+  "contact": {
+    "repo": "https://github.com/shane/Worldedit-GUI"
+  },
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      "org.shane0411.worldeditgui.worldeditgui.Worldedit_GUI"
+    ],
+    "client": [
+      "org.shane0411.worldeditgui.worldeditgui.client.Worldedit_GUIClient"
+    ],
+    "modmenu": [
+      "org.shane0411.worldeditgui.worldeditgui.compat.modmenu.ModMenuImpl"
+    ]
+  },
+  "mixins": [
+    "worldeditgui.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "malilib": "0.16.x",
+    "minecraft": "${minecraft_version}"
+  }
+}
