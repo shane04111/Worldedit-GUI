@@ -37,7 +37,7 @@ public class InputHandler implements IKeybindProvider, IKeyboardInputHandler, IM
             manager.addKeybindToMap(hotkey.getKeybind());
         }
 
-        for (IHotkey hotkey : Configs.Commands_Boolean.HOTKEY_LIST)
+        for (IHotkey hotkey : Hotkey.HOTKEY_LIST)
         {
             manager.addKeybindToMap(hotkey.getKeybind());
         }
@@ -45,7 +45,6 @@ public class InputHandler implements IKeybindProvider, IKeyboardInputHandler, IM
     @Override
     public void addHotkeys(IKeybindManager manager)
     {
-        manager.addHotkeysForCategory(Reference.MOD_NAME, "worldeditgui.hotkey.commands_hotkey", Configs.Commands_Boolean.HOTKEY_LIST);
         manager.addHotkeysForCategory(Reference.MOD_NAME, "worldeditgui.hotkey.hotkey", Hotkey.HOTKEY_LIST);
         manager.addHotkeysForCategory(Reference.MOD_NAME,"worldeditgui.hotkey.hotkey", Configs.Generic.OPTIONS);
     }

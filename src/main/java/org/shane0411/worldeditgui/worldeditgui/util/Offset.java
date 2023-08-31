@@ -4,20 +4,20 @@ import fi.dy.masa.malilib.config.IConfigOptionListEntry;
 import fi.dy.masa.malilib.util.StringUtils;
 
 public enum Offset implements IConfigOptionListEntry {
-    ME("", ""),
-    BACK("", ""),
-    LEFT("", ""),
-    RIGHT("", ""),
-    UP("", ""),
-    DOWN("", ""),
-    NORTH("north", "worldeditgui.util.flip.north"),
-    EAST("east", "worldeditgui.util.flip.east"),
-    SOUTH("south", "worldeditgui.util.flip.south"),
-    WEST("west", "worldeditgui.util.flip.west"),
-    NORTHEAST("", ""),
-    NORTHWEST("", ""),
-    SOUTHEAST("", ""),
-    SOUTHWEST("", "");
+    ME("me", "worldeditgui.util.offset.me"),
+    BACK("back", "worldeditgui.util.offset.back"),
+    LEFT("left", "worldeditgui.util.offset.left"),
+    RIGHT("right", "worldeditgui.util.offset.right"),
+    UP("up", "worldeditgui.util.offset.up"),
+    DOWN("down", "worldeditgui.util.offset.down"),
+    NORTH("north", "worldeditgui.util.offset.north"),
+    EAST("east", "worldeditgui.util.offset.east"),
+    SOUTH("south", "worldeditgui.util.offset.south"),
+    WEST("west", "worldeditgui.util.offset.west"),
+    NORTHEAST("northeast", "worldeditgui.util.offset.northeast"),
+    NORTHWEST("northwest", "worldeditgui.util.offset.northwest"),
+    SOUTHEAST("southeast", "worldeditgui.util.offset.southeast"),
+    SOUTHWEST("southwest", "worldeditgui.util.offset.southwest");
 
     private final String configString;
     private final String unlocName;

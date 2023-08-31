@@ -9,7 +9,6 @@ import org.shane0411.worldeditgui.worldeditgui.event.InputHandler;
 public class InitHandler implements IInitializationHandler {
     @Override
     public void registerModHandlers(){
-        Worldedit_GUI.LOGGER.warn("你好，你有東西寫錯了喔~");
         InputEventHandler.getKeybindManager().registerKeybindProvider(InputHandler.getInstance());
         InputEventHandler.getInputManager().registerKeyboardInputHandler(InputHandler.getInstance());
         InputEventHandler.getInputManager().registerMouseInputHandler(InputHandler.getInstance());

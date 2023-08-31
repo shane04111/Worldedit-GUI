@@ -15,7 +15,9 @@ import fi.dy.masa.malilib.util.JsonUtils;
 import fi.dy.masa.malilib.util.restrictions.UsageRestriction;
 import net.minecraft.client.MinecraftClient;
 import org.shane0411.worldeditgui.worldeditgui.Reference;
+import org.shane0411.worldeditgui.worldeditgui.util.Abers;
 import org.shane0411.worldeditgui.worldeditgui.util.Offset;
+import org.shane0411.worldeditgui.worldeditgui.util.Rotate;
 
 import java.io.File;
 
@@ -32,8 +34,9 @@ public class Configs implements IConfigHandler {
 
     public static class Commands {
         // Undo
+        public static final ConfigBoolean UNDO = new ConfigBoolean("worldeditgui.commands.undo", false, "worldeditgui.commands.undo.comment");
         public static final ConfigInteger UNDO_INV = new ConfigInteger("worldeditgui.commands.undo.number", 1, "worldeditgui.commands.undo.number.comment");
-        public static final ConfigString UNDO_PLAYER = new ConfigString("worldeditgui.commands.undo.player", "", "worldeditgui.commands.undo.player.comment");
+        public static final ConfigString UNDO_PLAYER = new ConfigString("worldeditgui.commands.undo.player", "", "worldedirgui.commands.redo.player.comment");
         // Redo
         public static final ConfigInteger REDO_INV = new ConfigInteger("worldeditgui.commands.redo.number", 1, "worldeditgui.commands.redo.number.comment");
         public static final ConfigString REDO_PLAYER = new ConfigString("worldeditgui.commands.redo.player", "", "worldeditgui.commands.redo.player.comment");
@@ -41,22 +44,26 @@ public class Configs implements IConfigHandler {
         public static final ConfigString SET_BLOCK = new ConfigString("worldeditgui.commands.set.block", "", "worldeditgui.commands.set.block.comment");
         // Copy
         // Move
-//        public static final ConfigBooleanHotkeyed MOVE = new ConfigBooleanHotkeyed("");
-        public static final ConfigInteger MOVE_INV = new ConfigInteger("Move Integer", 1, "Move block");
-        public static final ConfigBoolean FLIP_BOOLEAN = new ConfigBoolean("worldedutgui.util.flip.boolean", true, "worldedutgui.util.flip.boolean.comment");
-        public static final ConfigOptionList FLIP_FACE = new ConfigOptionList("worldedutgui.util.flip.face", Offset.ME, "worldedutgui.util.flip.face.comment");
+        public static final ConfigBoolean MOVE = new ConfigBoolean("worldeditgui.commands.move", false, "worldeditgui.commands.move.comment");
+        public static final ConfigInteger MOVE_INV = new ConfigInteger("worldeditgui.commands.move.number", 1, "worldeditgui.commands.move.number.comment");
+        // Rotate
+        public static final ConfigBoolean ROTATE = new ConfigBoolean("worldeditgui.commands.rotate", false, "worldeditgui.commands.rotate.comment");
+        public static final ConfigOptionList ROTATE_INV = new ConfigOptionList("worldeditgui.commands.rotate.number", Rotate.RIGHT_ANGLE, "worldeditgui.commands.rotate.number");
+        public static final ConfigBoolean ROTATE_XYZ = new ConfigBoolean("worldeditgui.commands.rotate.xyz", false, "worldeditgui.commands.rotate.xyz.comment");
+        public static final ConfigInteger ROTATE_Y_INV = new ConfigInteger("worldeditgui.commands.rotate.y", 0, "worldeditgui.commands.rotate.y.comment");
+        public static final ConfigInteger ROTATE_X_INV = new ConfigInteger("worldeditgui.commands.rotate.x", 0, "worldeditgui.commands.rotate.x.comment");
+        public static final ConfigInteger ROTATE_Z_INV = new ConfigInteger("worldeditgui.commands.rotate.z", 0, "worldeditgui.commands.rotate.z.comment");
         // Stack
-//        public static final ConfigInteger STACK_INV = new ConfigInteger();
-//        // Rotate
-//        public static final ConfigBooleanHotkeyed ROTATE = new ConfigBooleanHotkeyed();
-//        public static final ConfigOptionList ROTATE_INV = new ConfigInteger();
-//        public static final ConfigBooleanHotkeyed ROTATE_XYZ = new ConfigBooleanHotkeyed();
-//        public static final ConfigInteger ROTATE_XYZ_INV = new ConfigInteger();
+        public static final ConfigBoolean STACK = new ConfigBoolean("worldeditgui.commands.stack", false, "worldeditgui.commands.stack.comment");
+        public static final ConfigInteger STACK_INV = new ConfigInteger("worldeditgui.commands.stack.number", 1, "worldeditgui.commands.stack.number.comment");
+        public static final ConfigOptionList STACK_OFFSET = new ConfigOptionList("worldeditgui.commands.stack.offset", Offset.ME, "worldeditgui.commands.stack.offset.comment");
+        public static final ConfigOptionList STACK_ABERS = new ConfigOptionList("worldeditgui.commands.stack.abers", Abers.Abers_five.NA,"worldeditgui.commands.stack.abers.comment");
         // Flip
-//        public static final ConfigBooleanHotkeyed STACK = new ConfigBooleanHotkeyed();
-        public static final ConfigBooleanHotkeyed FLIP = new ConfigBooleanHotkeyed("worldedutgui.util.flip", false, "", "worldedutgui.util.flip.comment");
+        public static final ConfigBoolean FLIP = new ConfigBoolean("worldeditgui.commands.flip", false, "", "worldeditgui.commands.flip.comment");
+        public static final ConfigBoolean FLIP_BOOLEAN = new ConfigBoolean("worldeditgui.commands.flip.boolean", true, "worldeditgui.commands.flip.boolean.comment");
+        public static final ConfigOptionList FLIP_OFFSET = new ConfigOptionList("worldeditgui.commands.flip.offset", Offset.ME, "worldeditgui.commands.flip.offset.comment");
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
-//                UNDO,
+                UNDO,
                 UNDO_INV,
                 UNDO_PLAYER,
 
@@ -71,33 +78,25 @@ public class Configs implements IConfigHandler {
 //                COPY,
 //                PAST,
 
-//                MOVE,
+                MOVE,
                 MOVE_INV,
 
-//                STACK,
-//                STACK_INV,
-//
-//                ROTATE,
-//                ROTATE_INV,
-//                ROTATE_XYZ,
-//                ROTATE_XYZ_INV,
+                STACK,
+                STACK_INV,
+                STACK_OFFSET,
+                STACK_ABERS,
+
+                ROTATE,
+                ROTATE_INV,
+                ROTATE_XYZ,
+                ROTATE_Y_INV,
+                ROTATE_X_INV,
+                ROTATE_Z_INV,
 
                 FLIP,
                 FLIP_BOOLEAN,
-                FLIP_FACE
+                FLIP_OFFSET
 
-        );
-    }
-
-    public static class Commands_Boolean {
-        public static final ConfigBooleanHotkeyed UNDO = new ConfigBooleanHotkeyed("worldeditgui.commands.undo", false, "", "worldeditgui.commands.undo.comment");
-        public static final ConfigBooleanHotkeyed REDO = new ConfigBooleanHotkeyed("worldeditgui.commands.redo", false, "", "worldeditgui.commands.redo.comment");
-        public static final ConfigBooleanHotkeyed SET = new ConfigBooleanHotkeyed("worldeditgui.commands.set", false, "", "worldeditgui.commands.set.comment");
-        public static final ConfigBooleanHotkeyed CLEAR = new ConfigBooleanHotkeyed("worldeditgui.commands.clear", false, "", "worldeditgui.commands.clear.comment");
-        public static final ConfigBooleanHotkeyed COPY = new ConfigBooleanHotkeyed("worldeditgui.commands.copy", false, "", "worldeditgui.commands.copy.comment");
-        public static final ConfigBooleanHotkeyed PAST = new ConfigBooleanHotkeyed("worldeditgui.commands.past", false, "", "worldeditgui.commands.past.comment");
-        public static final ImmutableList<IHotkeyTogglable> HOTKEY_LIST = ImmutableList.of(
-                UNDO, REDO, SET, CLEAR, COPY, PAST
         );
     }
 

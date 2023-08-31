@@ -22,20 +22,19 @@ public class GuiConfig extends GuiConfigsBase {
     }
 
     @Override
-    protected boolean useKeybindSearch()
-    {
+    protected boolean useKeybindSearch() {
         return GuiConfig.tab == ConfigGuiTab.GENERIC ||
                 GuiConfig.tab == ConfigGuiTab.COMMANDS;
     }
 
     @Override
-    protected int getConfigWidth()
-    {
+    protected int getConfigWidth() {
         ConfigGuiTab tab = GuiConfig.tab;
 
-        if (tab == ConfigGuiTab.GENERIC)
-        {
+        if (tab == ConfigGuiTab.GENERIC) {
             return 120;
+        } else if (tab == ConfigGuiTab.COMMANDS) {
+            return 180;
         }
 
         return 260;
