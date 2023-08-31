@@ -34,7 +34,7 @@ public class GuiConfig extends GuiConfigsBase {
         if (tab == ConfigGuiTab.GENERIC) {
             return 120;
         } else if (tab == ConfigGuiTab.COMMANDS) {
-            return 180;
+            return 300;
         }
 
         return 260;

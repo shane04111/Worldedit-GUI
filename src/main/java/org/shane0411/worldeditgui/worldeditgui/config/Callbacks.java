@@ -11,7 +11,7 @@ import org.shane0411.worldeditgui.worldeditgui.gui.GuiConfig;
 public class Callbacks {
     public static void init(MinecraftClient minecraftClient) {
         IHotkeyCallback callbackGeneric = new KeyCallbackHotkeysGeneric(minecraftClient);
-        Configs.Generic.OPEN_CONFIG.getKeybind().setCallback(callbackGeneric);
+        Hotkey.OPEN_CONFIG.getKeybind().setCallback(callbackGeneric);
     }
 
     public static class KeyCallbackHotkeysGeneric implements IHotkeyCallback {
@@ -23,7 +23,7 @@ public class Callbacks {
 
         @Override
         public boolean onKeyAction(KeyAction action, IKeybind key) {
-            if(key == Configs.Generic.OPEN_CONFIG.getKeybind()){
+            if(key == Hotkey.OPEN_CONFIG.getKeybind()){
                 GuiBase.openGui(new GuiConfig());
                 return true;
             }

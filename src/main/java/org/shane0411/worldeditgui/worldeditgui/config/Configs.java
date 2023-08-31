@@ -25,9 +25,9 @@ public class Configs implements IConfigHandler {
     private static final String CONFIG_FILE_NAME = Reference.MOD_ID + ".json";
 
     public static class Generic {
-        public static final ConfigHotkey OPEN_CONFIG = new ConfigHotkey("worldeditgui.generic.open.config.gui", "Z,C", KeybindSettings.PRESS_ALLOWEXTRA, "worldeditgui.generic.open.config.gui.comment");
-        public static final ImmutableList<ConfigHotkey> OPTIONS = ImmutableList.of(
-                OPEN_CONFIG
+
+        public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
+
         );
     }
 
