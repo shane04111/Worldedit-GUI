@@ -9,7 +9,7 @@ package org.shane0411.worldeditgui.worldeditgui.client;
 //import net.minecraft.client.MinecraftClient;
 //import net.minecraft.client.network.ClientPlayerEntity;
 //import net.minecraft.command.CommandSource;
-//import org.shane0411.worldeditgui.worldeditgui.Message;
+//import org.shane0411.worldeditgui.worldeditgui.util.Message;
 //import fi.dy.masa.malilib.command.ClientCommandHandler;
 
 public class Command {

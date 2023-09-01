@@ -32,12 +32,12 @@ public class GuiConfig extends GuiConfigsBase {
         ConfigGuiTab tab = GuiConfig.tab;
 
         if (tab == ConfigGuiTab.GENERIC) {
-            return 120;
+            return 200;
         } else if (tab == ConfigGuiTab.COMMANDS) {
-            return 300;
+            return 120;
         }
 
-        return 260;
+        return 150;
     }
 
     @Override

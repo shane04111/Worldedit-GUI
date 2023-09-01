@@ -6,16 +6,10 @@ import com.google.gson.JsonObject;
 import fi.dy.masa.malilib.config.ConfigUtils;
 import fi.dy.masa.malilib.config.IConfigBase;
 import fi.dy.masa.malilib.config.IConfigHandler;
-import fi.dy.masa.malilib.config.IHotkeyTogglable;
 import fi.dy.masa.malilib.config.options.*;
-import fi.dy.masa.malilib.hotkeys.KeybindSettings;
 import fi.dy.masa.malilib.util.FileUtils;
-import fi.dy.masa.malilib.util.InventoryUtils;
 import fi.dy.masa.malilib.util.JsonUtils;
-import fi.dy.masa.malilib.util.restrictions.UsageRestriction;
-import net.minecraft.client.MinecraftClient;
 import org.shane0411.worldeditgui.worldeditgui.Reference;
-import org.shane0411.worldeditgui.worldeditgui.util.Abers;
 import org.shane0411.worldeditgui.worldeditgui.util.Offset;
 import org.shane0411.worldeditgui.worldeditgui.util.Rotate;
 
@@ -25,8 +19,33 @@ public class Configs implements IConfigHandler {
     private static final String CONFIG_FILE_NAME = Reference.MOD_ID + ".json";
 
     public static class Generic {
+        public static final ConfigInteger INIT_INTEGER = new ConfigInteger("",1,"");
+        public static final ConfigInteger INIT_RANGE = new ConfigInteger("",0,0 ,100,"");
+        public static final ConfigOptionList INIT_OFFSET = new ConfigOptionList("",Offset.ME,"");
+        public static final ConfigOptionList INIT_ANGEL = new ConfigOptionList("",Rotate.RIGHT_ANGLE,"");
+        public static final ConfigString INIT_BLOCK = new ConfigString("","","");
+        public static final ConfigString INIT_PLAYER = new ConfigString("","","");
+        public static final ConfigBoolean INIT_A = new  ConfigBoolean("",false,"");
+        public static final ConfigBoolean INIT_B = new  ConfigBoolean("",false,"");
+        public static final ConfigBoolean INIT_E = new  ConfigBoolean("",false,"");
+        public static final ConfigBoolean INIT_R = new  ConfigBoolean("",false,"");
+        public static final ConfigBoolean INIT_S = new  ConfigBoolean("",false,"");
+        public static final ConfigString INIT_M_BLOCK = new  ConfigString("","","");
 
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
+                INIT_INTEGER,
+                INIT_RANGE,
+                INIT_OFFSET,
+                INIT_ANGEL,
+                INIT_BLOCK,
+                INIT_PLAYER,
+                INIT_A,
+                INIT_B,
+                INIT_E,
+                INIT_R,
+                INIT_S,
+                INIT_M_BLOCK
+
 
         );
     }
@@ -35,11 +54,8 @@ public class Configs implements IConfigHandler {
     public static class Commands {
         // Undo
         public static final ConfigBoolean UNDO = new ConfigBoolean("worldeditgui.commands.undo", false, "worldeditgui.commands.undo.comment");
-        public static final ConfigInteger UNDO_INV = new ConfigInteger("worldeditgui.commands.undo.number", 1, "worldeditgui.commands.undo.number.comment");
-        public static final ConfigString UNDO_PLAYER = new ConfigString("worldeditgui.commands.undo.player", "", "worldedirgui.commands.redo.player.comment");
         // Redo
         public static final ConfigInteger REDO_INV = new ConfigInteger("worldeditgui.commands.redo.number", 1, "worldeditgui.commands.redo.number.comment");
-        public static final ConfigString REDO_PLAYER = new ConfigString("worldeditgui.commands.redo.player", "", "worldeditgui.commands.redo.player.comment");
         // set
         public static final ConfigString SET_BLOCK = new ConfigString("worldeditgui.commands.set.block", "", "worldeditgui.commands.set.block.comment");
         // Copy
@@ -57,19 +73,15 @@ public class Configs implements IConfigHandler {
         public static final ConfigBoolean STACK = new ConfigBoolean("worldeditgui.commands.stack", false, "worldeditgui.commands.stack.comment");
         public static final ConfigInteger STACK_INV = new ConfigInteger("worldeditgui.commands.stack.number", 1, "worldeditgui.commands.stack.number.comment");
         public static final ConfigOptionList STACK_OFFSET = new ConfigOptionList("worldeditgui.commands.stack.offset", Offset.ME, "worldeditgui.commands.stack.offset.comment");
-        public static final ConfigOptionList STACK_ABERS = new ConfigOptionList("worldeditgui.commands.stack.abers", Abers.Abers_five.NA,"worldeditgui.commands.stack.abers.comment");
         // Flip
         public static final ConfigBoolean FLIP = new ConfigBoolean("worldeditgui.commands.flip", false, "", "worldeditgui.commands.flip.comment");
         public static final ConfigBoolean FLIP_BOOLEAN = new ConfigBoolean("worldeditgui.commands.flip.boolean", true, "worldeditgui.commands.flip.boolean.comment");
         public static final ConfigOptionList FLIP_OFFSET = new ConfigOptionList("worldeditgui.commands.flip.offset", Offset.ME, "worldeditgui.commands.flip.offset.comment");
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
                 UNDO,
-                UNDO_INV,
-                UNDO_PLAYER,
 
 //                REDO,
                 REDO_INV,
-                REDO_PLAYER,
 
 //                CLEAR,
 //                SET,
@@ -84,7 +96,6 @@ public class Configs implements IConfigHandler {
                 STACK,
                 STACK_INV,
                 STACK_OFFSET,
-                STACK_ABERS,
 
                 ROTATE,
                 ROTATE_INV,

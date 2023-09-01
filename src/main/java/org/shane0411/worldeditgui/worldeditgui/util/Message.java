@@ -1,4 +1,4 @@
-package org.shane0411.worldeditgui.worldeditgui;
+package org.shane0411.worldeditgui.worldeditgui.util;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.text.Text;

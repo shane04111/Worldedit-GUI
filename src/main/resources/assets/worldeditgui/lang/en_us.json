@@ -98,5 +98,7 @@
   "Rotate_Util": "Util",
   "worldeditgui.rotate.90": "90°",
   "worldeditgui.rotate.180": "180°",
-  "worldeditgui.rotate.270": "270°"
+  "worldeditgui.rotate.270": "270°",
+  "Execution": "Command",
+  "worldeditgui.execution.undo": "Undo command executed successfully"
 }
