@@ -7,7 +7,6 @@ import net.minecraft.client.MinecraftClient;
 import org.shane0411.worldeditgui.worldeditgui.config.Callbacks;
 import org.shane0411.worldeditgui.worldeditgui.event.ClientTickHeadler;
 import org.shane0411.worldeditgui.worldeditgui.event.InputHandler;
-import org.shane0411.worldeditgui.worldeditgui.util.DoCommands;
 
 public class InitHandler implements IInitializationHandler {
     @Override

@@ -19,18 +19,18 @@ public class Configs implements IConfigHandler {
     private static final String CONFIG_FILE_NAME = Reference.MOD_ID + ".json";
 
     public static class Generic {
-        public static final ConfigInteger INIT_INTEGER = new ConfigInteger("",1,"");
-        public static final ConfigInteger INIT_RANGE = new ConfigInteger("",0,0 ,100,"");
-        public static final ConfigOptionList INIT_OFFSET = new ConfigOptionList("",Offset.ME,"");
-        public static final ConfigOptionList INIT_ANGEL = new ConfigOptionList("",Rotate.RIGHT_ANGLE,"");
-        public static final ConfigString INIT_BLOCK = new ConfigString("","","");
-        public static final ConfigString INIT_PLAYER = new ConfigString("","","");
-        public static final ConfigBoolean INIT_A = new  ConfigBoolean("",false,"");
-        public static final ConfigBoolean INIT_B = new  ConfigBoolean("",false,"");
-        public static final ConfigBoolean INIT_E = new  ConfigBoolean("",false,"");
-        public static final ConfigBoolean INIT_R = new  ConfigBoolean("",false,"");
-        public static final ConfigBoolean INIT_S = new  ConfigBoolean("",false,"");
-        public static final ConfigString INIT_M_BLOCK = new  ConfigString("","","");
+        public static final ConfigInteger INIT_INTEGER = new ConfigInteger("", 1, "");
+        public static final ConfigInteger INIT_RANGE = new ConfigInteger("", 0, 0, 100, "");
+        public static final ConfigOptionList INIT_OFFSET = new ConfigOptionList("", Offset.ME, "");
+        public static final ConfigOptionList INIT_ANGEL = new ConfigOptionList("", Rotate.RIGHT_ANGLE, "");
+        public static final ConfigString INIT_BLOCK = new ConfigString("", "", "");
+        public static final ConfigString INIT_PLAYER = new ConfigString("", "", "");
+        public static final ConfigBoolean INIT_A = new ConfigBoolean("", false, "");
+        public static final ConfigBoolean INIT_B = new ConfigBoolean("", false, "");
+        public static final ConfigBoolean INIT_E = new ConfigBoolean("", false, "");
+        public static final ConfigBoolean INIT_R = new ConfigBoolean("", false, "");
+        public static final ConfigBoolean INIT_S = new ConfigBoolean("", false, "");
+        public static final ConfigString INIT_M_BLOCK = new ConfigString("", "", "");
 
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
                 INIT_INTEGER,
@@ -55,59 +55,35 @@ public class Configs implements IConfigHandler {
         // Undo
         public static final ConfigBoolean UNDO = new ConfigBoolean("worldeditgui.commands.undo", false, "worldeditgui.commands.undo.comment");
         // Redo
-        public static final ConfigInteger REDO_INV = new ConfigInteger("worldeditgui.commands.redo.number", 1, "worldeditgui.commands.redo.number.comment");
+        public static final ConfigBoolean REDO = new ConfigBoolean("worldeditgui.commands.redo.number", false, "worldeditgui.commands.redo.number.comment");
         // set
-        public static final ConfigString SET_BLOCK = new ConfigString("worldeditgui.commands.set.block", "", "worldeditgui.commands.set.block.comment");
+        public static final ConfigBoolean CLEAR = new ConfigBoolean("", false, "");
+        public static final ConfigBoolean SET = new ConfigBoolean("", false, "");
         // Copy
+        public static final ConfigBoolean COPY = new ConfigBoolean("", false, "");
+        // paste
+        public static final ConfigBoolean PASTE = new ConfigBoolean("", false, "");
         // Move
         public static final ConfigBoolean MOVE = new ConfigBoolean("worldeditgui.commands.move", false, "worldeditgui.commands.move.comment");
-        public static final ConfigInteger MOVE_INV = new ConfigInteger("worldeditgui.commands.move.number", 1, "worldeditgui.commands.move.number.comment");
         // Rotate
         public static final ConfigBoolean ROTATE = new ConfigBoolean("worldeditgui.commands.rotate", false, "worldeditgui.commands.rotate.comment");
-        public static final ConfigOptionList ROTATE_INV = new ConfigOptionList("worldeditgui.commands.rotate.number", Rotate.RIGHT_ANGLE, "worldeditgui.commands.rotate.number");
         public static final ConfigBoolean ROTATE_XYZ = new ConfigBoolean("worldeditgui.commands.rotate.xyz", false, "worldeditgui.commands.rotate.xyz.comment");
-        public static final ConfigInteger ROTATE_Y_INV = new ConfigInteger("worldeditgui.commands.rotate.y", 0, "worldeditgui.commands.rotate.y.comment");
-        public static final ConfigInteger ROTATE_X_INV = new ConfigInteger("worldeditgui.commands.rotate.x", 0, "worldeditgui.commands.rotate.x.comment");
-        public static final ConfigInteger ROTATE_Z_INV = new ConfigInteger("worldeditgui.commands.rotate.z", 0, "worldeditgui.commands.rotate.z.comment");
         // Stack
         public static final ConfigBoolean STACK = new ConfigBoolean("worldeditgui.commands.stack", false, "worldeditgui.commands.stack.comment");
-        public static final ConfigInteger STACK_INV = new ConfigInteger("worldeditgui.commands.stack.number", 1, "worldeditgui.commands.stack.number.comment");
-        public static final ConfigOptionList STACK_OFFSET = new ConfigOptionList("worldeditgui.commands.stack.offset", Offset.ME, "worldeditgui.commands.stack.offset.comment");
         // Flip
         public static final ConfigBoolean FLIP = new ConfigBoolean("worldeditgui.commands.flip", false, "", "worldeditgui.commands.flip.comment");
-        public static final ConfigBoolean FLIP_BOOLEAN = new ConfigBoolean("worldeditgui.commands.flip.boolean", true, "worldeditgui.commands.flip.boolean.comment");
-        public static final ConfigOptionList FLIP_OFFSET = new ConfigOptionList("worldeditgui.commands.flip.offset", Offset.ME, "worldeditgui.commands.flip.offset.comment");
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
                 UNDO,
-
-//                REDO,
-                REDO_INV,
-
-//                CLEAR,
-//                SET,
-                SET_BLOCK,
-
-//                COPY,
-//                PAST,
-
+                REDO,
+                CLEAR,
+                SET,
+                COPY,
+                PASTE,
                 MOVE,
-                MOVE_INV,
-
                 STACK,
-                STACK_INV,
-                STACK_OFFSET,
-
                 ROTATE,
-                ROTATE_INV,
                 ROTATE_XYZ,
-                ROTATE_Y_INV,
-                ROTATE_X_INV,
-                ROTATE_Z_INV,
-
-                FLIP,
-                FLIP_BOOLEAN,
-                FLIP_OFFSET
-
+                FLIP
         );
     }
 
