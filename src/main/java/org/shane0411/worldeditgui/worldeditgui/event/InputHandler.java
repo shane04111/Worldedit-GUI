@@ -6,6 +6,8 @@ import net.minecraft.client.MinecraftClient;
 import org.shane0411.worldeditgui.worldeditgui.Reference;
 import org.shane0411.worldeditgui.worldeditgui.config.Configs;
 import org.shane0411.worldeditgui.worldeditgui.config.Hotkey;
+import org.shane0411.worldeditgui.worldeditgui.config.commands.Navigation_Commands;
+import org.shane0411.worldeditgui.worldeditgui.config.commands.Selection_Commands;
 
 public class InputHandler implements IKeybindProvider, IKeyboardInputHandler, IMouseInputHandler {
     private static final InputHandler INSTANCE = new InputHandler();
@@ -36,10 +38,24 @@ public class InputHandler implements IKeybindProvider, IKeyboardInputHandler, IM
         {
             manager.addKeybindToMap(hotkey.getKeybind());
         }
+
+        for (IHotkey hotkey : Configs.Common_Commands.COMMANDS_HOTKEY){
+            manager.addKeybindToMap(hotkey.getKeybind());
+        }
+
+        for (IHotkey hotkey : Navigation_Commands.COMMANDS_HOTKEY){
+            manager.addKeybindToMap(hotkey.getKeybind());
+        }
+        for (IHotkey hotkey : Selection_Commands.COMMANDS_HOTKEY){
+            manager.addKeybindToMap(hotkey.getKeybind());
+        }
     }
     @Override
     public void addHotkeys(IKeybindManager manager)
     {
+        manager.addHotkeysForCategory(Reference.MOD_NAME,"worldeditgui.hotkey.command", Configs.Common_Commands.COMMANDS_HOTKEY);
+        manager.addHotkeysForCategory(Reference.MOD_NAME,"worldeditgui.hotkey.navigation_commands", Navigation_Commands.COMMANDS_HOTKEY);
+        manager.addHotkeysForCategory(Reference.MOD_NAME,"worldeditgui.hotkey.selection_commands", Selection_Commands.COMMANDS_HOTKEY);
         manager.addHotkeysForCategory(Reference.MOD_NAME, "worldeditgui.hotkey.hotkey", Hotkey.HOTKEY_LIST);
     }
     @Override

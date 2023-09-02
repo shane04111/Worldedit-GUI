@@ -10,6 +10,8 @@ import fi.dy.masa.malilib.config.options.*;
 import fi.dy.masa.malilib.util.FileUtils;
 import fi.dy.masa.malilib.util.JsonUtils;
 import org.shane0411.worldeditgui.worldeditgui.Reference;
+import org.shane0411.worldeditgui.worldeditgui.config.commands.Navigation_Commands;
+import org.shane0411.worldeditgui.worldeditgui.config.commands.Selection_Commands;
 import org.shane0411.worldeditgui.worldeditgui.util.Offset;
 import org.shane0411.worldeditgui.worldeditgui.util.Rotate;
 
@@ -23,56 +25,47 @@ public class Configs implements IConfigHandler {
         public static final ConfigInteger INIT_RANGE = new ConfigInteger("", 0, 0, 100, "");
         public static final ConfigOptionList INIT_OFFSET = new ConfigOptionList("", Offset.ME, "");
         public static final ConfigOptionList INIT_ANGEL = new ConfigOptionList("", Rotate.RIGHT_ANGLE, "");
-        public static final ConfigString INIT_BLOCK = new ConfigString("", "", "");
+        public static final ConfigString INIT_BLOCK = new ConfigString("", "hand", "");
         public static final ConfigString INIT_PLAYER = new ConfigString("", "", "");
-        public static final ConfigBoolean INIT_A = new ConfigBoolean("", false, "");
-        public static final ConfigBoolean INIT_B = new ConfigBoolean("", false, "");
-        public static final ConfigBoolean INIT_E = new ConfigBoolean("", false, "");
-        public static final ConfigBoolean INIT_R = new ConfigBoolean("", false, "");
-        public static final ConfigBoolean INIT_S = new ConfigBoolean("", false, "");
-        public static final ConfigString INIT_M_BLOCK = new ConfigString("", "", "");
+        public static final ConfigBoolean INIT_A = new ConfigBoolean("A", false, "");
+        public static final ConfigBoolean INIT_B = new ConfigBoolean("B", false, "");
+        public static final ConfigBoolean INIT_E = new ConfigBoolean("E", false, "");
+        public static final ConfigBoolean INIT_R = new ConfigBoolean("R", false, "");
+        public static final ConfigBoolean INIT_S = new ConfigBoolean("S", false, "");
+        public static final ConfigBoolean INIT_M = new ConfigBoolean("M", false, "");
+        public static final ConfigString INIT_M_BLOCK = new ConfigString("M_BK", "hand", "");
 
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
                 INIT_INTEGER,
-                INIT_RANGE,
                 INIT_OFFSET,
-                INIT_ANGEL,
                 INIT_BLOCK,
+                INIT_ANGEL,
                 INIT_PLAYER,
+                INIT_RANGE,
                 INIT_A,
                 INIT_B,
                 INIT_E,
                 INIT_R,
                 INIT_S,
+                INIT_M,
                 INIT_M_BLOCK
-
-
         );
     }
 
 
-    public static class Commands {
-        // Undo
-        public static final ConfigBoolean UNDO = new ConfigBoolean("worldeditgui.commands.undo", false, "worldeditgui.commands.undo.comment");
-        // Redo
-        public static final ConfigBoolean REDO = new ConfigBoolean("worldeditgui.commands.redo.number", false, "worldeditgui.commands.redo.number.comment");
-        // set
-        public static final ConfigBoolean CLEAR = new ConfigBoolean("", false, "");
-        public static final ConfigBoolean SET = new ConfigBoolean("", false, "");
-        // Copy
-        public static final ConfigBoolean COPY = new ConfigBoolean("", false, "");
-        // paste
-        public static final ConfigBoolean PASTE = new ConfigBoolean("", false, "");
-        // Move
-        public static final ConfigBoolean MOVE = new ConfigBoolean("worldeditgui.commands.move", false, "worldeditgui.commands.move.comment");
-        // Rotate
-        public static final ConfigBoolean ROTATE = new ConfigBoolean("worldeditgui.commands.rotate", false, "worldeditgui.commands.rotate.comment");
-        public static final ConfigBoolean ROTATE_XYZ = new ConfigBoolean("worldeditgui.commands.rotate.xyz", false, "worldeditgui.commands.rotate.xyz.comment");
-        // Stack
-        public static final ConfigBoolean STACK = new ConfigBoolean("worldeditgui.commands.stack", false, "worldeditgui.commands.stack.comment");
-        // Flip
-        public static final ConfigBoolean FLIP = new ConfigBoolean("worldeditgui.commands.flip", false, "", "worldeditgui.commands.flip.comment");
-        public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
+    public static class Common_Commands {
+        public static final ConfigBooleanHotkeyed UNDO = BooleanHotkey("undo");
+        public static final ConfigBooleanHotkeyed REDO = BooleanHotkey("redo");
+        public static final ConfigBooleanHotkeyed CLEAR = BooleanHotkey("clear");
+        public static final ConfigBooleanHotkeyed SET = BooleanHotkey("set");
+        public static final ConfigBooleanHotkeyed COPY = BooleanHotkey("copy");
+        public static final ConfigBooleanHotkeyed PASTE = BooleanHotkey("paste");
+        public static final ConfigBooleanHotkeyed MOVE = BooleanHotkey("move");
+        public static final ConfigBooleanHotkeyed ROTATE = BooleanHotkey("rotate");
+        public static final ConfigBooleanHotkeyed ROTATE_XYZ = BooleanHotkey("rotate.xyz");
+        public static final ConfigBooleanHotkeyed STACK = BooleanHotkey("stack");
+        public static final ConfigBooleanHotkeyed FLIP = BooleanHotkey("flip");
+        public static final ImmutableList<ConfigBooleanHotkeyed> COMMANDS_HOTKEY = ImmutableList.of(
                 UNDO,
                 REDO,
                 CLEAR,
@@ -87,14 +80,19 @@ public class Configs implements IConfigHandler {
         );
     }
 
+    private static ConfigBooleanHotkeyed BooleanHotkey(String command) {
+        return new ConfigBooleanHotkeyed("worldeditgui.commands." + command, false, "", "worldeditgui.commands." + command + ".comment");
+    }
+
     public static void saveToFile() {
         File dir = FileUtils.getConfigDirectory();
 
         if ((dir.exists() && dir.isDirectory()) || dir.mkdirs()) {
             JsonObject root = new JsonObject();
-
             ConfigUtils.writeConfigBase(root, "Generic", Configs.Generic.OPTIONS);
-            ConfigUtils.writeConfigBase(root, "Commands", Configs.Commands.OPTIONS);
+            ConfigUtils.writeConfigBase(root, "Common_Commands", Common_Commands.COMMANDS_HOTKEY);
+            ConfigUtils.writeConfigBase(root, "Navigation Commands", Navigation_Commands.COMMANDS_HOTKEY);
+            ConfigUtils.writeConfigBase(root, "Selection Commands", Selection_Commands.COMMANDS_HOTKEY);
             ConfigUtils.writeConfigBase(root, "Hotkey", Hotkey.HOTKEY_LIST);
             JsonUtils.writeJsonToFile(root, new File(dir, CONFIG_FILE_NAME));
         }
@@ -110,7 +108,7 @@ public class Configs implements IConfigHandler {
                 JsonObject root = element.getAsJsonObject();
 
                 ConfigUtils.readConfigBase(root, "Generic", Configs.Generic.OPTIONS);
-                ConfigUtils.readConfigBase(root, "Commands", Commands.OPTIONS);
+                ConfigUtils.readConfigBase(root, "Common_Commands", Common_Commands.COMMANDS_HOTKEY);
                 ConfigUtils.readConfigBase(root, "Hotkey", Hotkey.HOTKEY_LIST);
             }
         }

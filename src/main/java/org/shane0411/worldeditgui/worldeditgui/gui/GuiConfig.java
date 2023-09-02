@@ -1,7 +1,6 @@
 package org.shane0411.worldeditgui.worldeditgui.gui;
 
 import fi.dy.masa.malilib.config.IConfigBase;
-import fi.dy.masa.malilib.config.options.BooleanHotkeyGuiWrapper;
 import fi.dy.masa.malilib.gui.GuiConfigsBase;
 import fi.dy.masa.malilib.gui.button.ButtonBase;
 import fi.dy.masa.malilib.gui.button.ButtonGeneric;
@@ -10,6 +9,8 @@ import fi.dy.masa.malilib.util.StringUtils;
 import org.shane0411.worldeditgui.worldeditgui.Reference;
 import org.shane0411.worldeditgui.worldeditgui.config.Configs;
 import org.shane0411.worldeditgui.worldeditgui.config.Hotkey;
+import org.shane0411.worldeditgui.worldeditgui.config.commands.Navigation_Commands;
+import org.shane0411.worldeditgui.worldeditgui.config.commands.Selection_Commands;
 
 import java.util.Collections;
 import java.util.List;
@@ -24,7 +25,7 @@ public class GuiConfig extends GuiConfigsBase {
     @Override
     protected boolean useKeybindSearch() {
         return GuiConfig.tab == ConfigGuiTab.GENERIC ||
-                GuiConfig.tab == ConfigGuiTab.COMMANDS;
+                GuiConfig.tab == ConfigGuiTab.COMMON_COMMANDS;
     }
 
     @Override
@@ -33,11 +34,8 @@ public class GuiConfig extends GuiConfigsBase {
 
         if (tab == ConfigGuiTab.GENERIC) {
             return 200;
-        } else if (tab == ConfigGuiTab.COMMANDS) {
-            return 120;
         }
-
-        return 150;
+        return 260;
     }
 
     @Override
@@ -65,8 +63,12 @@ public class GuiConfig extends GuiConfigsBase {
         ConfigGuiTab tab = GuiConfig.tab;
         if (tab == ConfigGuiTab.GENERIC) {
             configs = Configs.Generic.OPTIONS;
-        } else if (tab == ConfigGuiTab.COMMANDS) {
-            configs = Configs.Commands.OPTIONS;
+        } else if (tab == ConfigGuiTab.COMMON_COMMANDS) {
+            configs = Configs.Common_Commands.COMMANDS_HOTKEY;
+        } else if (tab == ConfigGuiTab.NAVIGATION_COMMANDS) {
+            configs = Navigation_Commands.COMMANDS_HOTKEY;
+        } else if (tab == ConfigGuiTab.SELECTION_COMMANDS) {
+            configs = Selection_Commands.COMMANDS_HOTKEY;
         } else if (tab == ConfigGuiTab.HOTKEY) {
             configs = Hotkey.HOTKEY_LIST;
         } else {
@@ -96,7 +98,9 @@ public class GuiConfig extends GuiConfigsBase {
 
     public enum ConfigGuiTab {
         GENERIC("worldeditgui.gui.button.generic"),
-        COMMANDS("worldeditgui.gui.button.commands"),
+        COMMON_COMMANDS("worldeditgui.gui.button.commands"),
+        NAVIGATION_COMMANDS("worldeditgui.gui.button.navigation_commands"),
+        SELECTION_COMMANDS("worldeditgui.gui.button.selection_commands"),
         HOTKEY("worldeditgui.gui.button.hotkey");
 
         private final String translationKey;
