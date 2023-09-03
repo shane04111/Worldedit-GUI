@@ -5,7 +5,7 @@
   "worldeditgui.gui.button.generic": "Generic",
   "worldeditgui.gui.button.common_commands": "Common Commands",
   "worldeditgui.gui.button.commands": "Commands",
-  "worldeditgui.gui.button.hotkey": "Commands Hotkey",
+  "worldeditgui.gui.button.hotkey": "Hotkey",
   "Hotkey": "Hotkey",
   "worldeditgui.hotkey.commands_hotkey": "Commands Hotkey",
   "worldeditgui.hotkey.hotkey": "Generic Hotkey",

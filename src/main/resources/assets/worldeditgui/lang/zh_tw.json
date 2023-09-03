@@ -5,7 +5,7 @@
   "worldeditgui.gui.button.generic": "通用",
   "worldeditgui.gui.button.common_commands": "指令",
   "worldeditgui.gui.button.commands": "Commands",
-  "worldeditgui.gui.button.hotkey": "指令熱鍵",
+  "worldeditgui.gui.button.hotkey": "熱鍵",
   "Hotkey": "Hotkey",
   "worldeditgui.hotkey.commands_hotkey": "指令熱鍵",
   "worldeditgui.hotkey.hotkey": "通用熱鍵",
