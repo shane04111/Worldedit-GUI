@@ -3,14 +3,14 @@
   "worldeditgui.gui.title.config": "Worldedit GUI 設置介面 - %s",
   "Button": "GUI Top",
   "worldeditgui.gui.button.generic": "通用",
-  "worldeditgui.gui.button.common_commands": "指令",
-  "worldeditgui.gui.button.commands": "Commands",
+  "worldeditgui.gui.button.common_commands": "常用指令",
+  "worldeditgui.gui.button.commands": "指令",
   "worldeditgui.gui.button.hotkey": "熱鍵",
   "Hotkey": "Hotkey",
   "worldeditgui.hotkey.commands_hotkey": "指令熱鍵",
   "worldeditgui.hotkey.hotkey": "通用熱鍵",
-  "worldeditgui.hotkey.navigation_commands": "Navigation Commands Hotkey",
-  "worldeditgui.hotkey.selection_commands": "Selection Commands Hotkey",
+  "worldeditgui.hotkey.navigation_commands": "導航命令熱鍵",
+  "worldeditgui.hotkey.selection_commands": "選擇命令熱鍵",
   "Common": "Commends",
   "worldeditgui.commands.undo": "Undo | 撤銷",
   "worldeditgui.commands.undo.comment": "執行//undo，撤消最後一次的操作（來自歷史記錄）",
@@ -66,6 +66,6 @@
   "Command_Message": "Message",
   "worldeditgui.command.message.undo": "已執行撤消命令",
   "Hotkey_Message": "Message",
-  "worldeditgui.hotkey.message.add": "Initial integer has been increased to: ",
-  "worldeditgui.hotkey.message.decrease": "Initial integer has been reduced to: "
+  "worldeditgui.hotkey.message.add": "初始整數已增加至: ",
+  "worldeditgui.hotkey.message.decrease": "初始整數已減少至: "
 }
