@@ -65,7 +65,7 @@ public class GuiConfig extends GuiConfigsBase {
             configs = Configs.Generic.OPTIONS;
         } else if (tab == ConfigGuiTab.COMMON_COMMANDS) {
             configs = Common_Commands.COMMANDS_HOTKEY;
-        } else if (tab == ConfigGuiTab.NAVIGATION_COMMANDS) {
+        } else if (tab == ConfigGuiTab.COMMANDS) {
             configs = Commands.COMMANDS_HOTKEY;
         } else if (tab == ConfigGuiTab.HOTKEY) {
             configs = Hotkey.HOTKEY_LIST;
@@ -96,9 +96,8 @@ public class GuiConfig extends GuiConfigsBase {
 
     public enum ConfigGuiTab {
         GENERIC("worldeditgui.gui.button.generic"),
-        COMMON_COMMANDS("worldeditgui.gui.button.commands"),
-        NAVIGATION_COMMANDS("worldeditgui.gui.button.navigation_commands"),
-        SELECTION_COMMANDS("worldeditgui.gui.button.selection_commands"),
+        COMMON_COMMANDS("worldeditgui.gui.button.common_commands"),
+        COMMANDS("worldeditgui.gui.button.commands"),
         HOTKEY("worldeditgui.gui.button.hotkey");
 
         private final String translationKey;

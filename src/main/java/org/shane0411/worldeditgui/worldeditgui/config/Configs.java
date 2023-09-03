@@ -21,8 +21,8 @@ public class Configs implements IConfigHandler {
     private static final String CONFIG_FILE_NAME = Reference.MOD_ID + ".json";
 
     public static class Generic {
-        public static final ConfigInteger INIT_INTEGER = new ConfigInteger("init integer", 1, 1,    100000,false, "");
-        public static final ConfigInteger INIT_CHANGE = new ConfigInteger("init change", 1, 1,      10000,false, "");
+        public static final ConfigInteger INIT_INTEGER = new ConfigInteger("init integer", 1, 1, 100000, false, "");
+        public static final ConfigInteger INIT_CHANGE = new ConfigInteger("init change", 1, 1, 10000, false, "");
         public static final ConfigInteger INIT_RANGE = new ConfigInteger("", 0, 0, 100, "");
         public static final ConfigOptionList INIT_OFFSET = new ConfigOptionList("", Offset.ME, "");
         public static final ConfigOptionList INIT_ANGEL = new ConfigOptionList("", Rotate.RIGHT_ANGLE, "");
@@ -53,6 +53,7 @@ public class Configs implements IConfigHandler {
                 INIT_M_BLOCK
         );
     }
+
     public static void saveToFile() {
         File dir = FileUtils.getConfigDirectory();
 
@@ -60,9 +61,9 @@ public class Configs implements IConfigHandler {
             JsonObject root = new JsonObject();
 
             ConfigUtils.writeConfigBase(root, "Generic", Configs.Generic.OPTIONS);
-            ConfigUtils.writeConfigBase(root, "Common_Commands", Common_Commands.COMMANDS_HOTKEY);
-            ConfigUtils.writeConfigBase(root, "Commands", Commands.COMMANDS_HOTKEY);
-            ConfigUtils.writeConfigBase(root, "Hotkey", Hotkey.HOTKEY_LIST);
+            ConfigUtils.writeHotkeyToggleOptions(root, "Common_Commands", "Common_Commands", Common_Commands.COMMANDS_HOTKEY);
+            ConfigUtils.writeHotkeyToggleOptions(root, "Commands", "Commands", Commands.COMMANDS_HOTKEY);
+            ConfigUtils.writeHotkeys(root, "Hotkey", Hotkey.HOTKEY_LIST);
             JsonUtils.writeJsonToFile(root, new File(dir, CONFIG_FILE_NAME));
         }
     }
@@ -76,10 +77,10 @@ public class Configs implements IConfigHandler {
             if (element != null && element.isJsonObject()) {
                 JsonObject root = element.getAsJsonObject();
 
-                ConfigUtils.writeConfigBase(root, "Generic", Configs.Generic.OPTIONS);
-                ConfigUtils.writeConfigBase(root, "Common_Commands", Common_Commands.COMMANDS_HOTKEY);
-                ConfigUtils.writeConfigBase(root, "Commands", Commands.COMMANDS_HOTKEY);
-                ConfigUtils.writeConfigBase(root, "Hotkey", Hotkey.HOTKEY_LIST);
+                ConfigUtils.readConfigBase(root, "Generic", Configs.Generic.OPTIONS);
+                ConfigUtils.readHotkeyToggleOptions(root, "Common_Commands","Common_Commands", Common_Commands.COMMANDS_HOTKEY);
+                ConfigUtils.readHotkeyToggleOptions(root, "Commands","Commands", Commands.COMMANDS_HOTKEY);
+                ConfigUtils.readHotkeys(root, "Hotkey", Hotkey.HOTKEY_LIST);
             }
         }
     }
