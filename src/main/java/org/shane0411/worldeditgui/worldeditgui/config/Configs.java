@@ -28,10 +28,11 @@ public class Configs implements IConfigHandler {
         public static final ConfigInteger INIT_INTEGER = InitialInteger("init_integer", 1, 1, 100000);
         public static final ConfigInteger INIT_CHANGE = InitialInteger("init_change", 1, 1, 10000);
         public static final ConfigInteger INIT_RANGE = InitialInteger("init_range", 0, 0, 100);
-        public static final ConfigOptionList INIT_OFFSET = InitialOption("init_offset", Offset.ME);
-        public static final ConfigOptionList INIT_ANGEL = InitialOption("init_angel", Rotate.RIGHT_ANGLE);
         public static final ConfigString INIT_BLOCK = InitialString("init_block", "hand");
         public static final ConfigString INIT_PLAYER = InitialString("init_player", "");
+        public static final ConfigOptionList INIT_OFFSET = InitialOption("init_offset", Offset.ME);
+        public static final ConfigOptionList INIT_DIRECTION = InitialOption("init_direction", Offset.ME);
+        public static final ConfigOptionList INIT_ANGEL = InitialOption("init_angel", Rotate.RIGHT_ANGLE);
         public static final ConfigBoolean INIT_A = InitialBoolean("init_a");
         public static final ConfigBoolean INIT_B = InitialBoolean("init_b");
         public static final ConfigBoolean INIT_E = InitialBoolean("init_e");
@@ -41,21 +42,14 @@ public class Configs implements IConfigHandler {
         public static final ConfigString INIT_M_BLOCK = InitialString("init_mask", "hand");
 
         public static final ImmutableList<IConfigBase> OPTIONS = ImmutableList.of(
-                INIT_INTEGER,
-                INIT_CHANGE,
-                INIT_OFFSET,
-                INIT_BLOCK,
-                INIT_ANGEL,
-                INIT_PLAYER,
-                INIT_RANGE,
-                INIT_A,
-                INIT_B,
-                INIT_E,
-                INIT_R,
-                INIT_S,
-                INIT_M,
-                INIT_M_BLOCK
-        );
+                // Initial integer
+                INIT_INTEGER, INIT_CHANGE, INIT_RANGE,
+                // Initial string
+                INIT_BLOCK, INIT_PLAYER,
+                // Initial option
+                INIT_OFFSET, INIT_DIRECTION, INIT_ANGEL,
+                // Initial addon
+                INIT_A, INIT_B, INIT_E, INIT_R, INIT_S, INIT_M, INIT_M_BLOCK);
     }
 
     private static ConfigBoolean InitialBoolean(String name) {
