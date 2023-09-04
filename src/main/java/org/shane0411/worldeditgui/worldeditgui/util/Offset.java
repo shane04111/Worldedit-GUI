@@ -22,7 +22,7 @@ public enum Offset implements IConfigOptionListEntry {
     private final String configString;
     private final String unlocName;
 
-    private Offset(String configString, String unlocName) {
+    Offset(String configString, String unlocName) {
         this.configString = configString;
         this.unlocName = unlocName;
     }
