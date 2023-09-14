@@ -32,7 +32,10 @@ public class Configs implements IConfigHandler {
         public static final ConfigString INIT_PLAYER = InitialString("init_player", "");
         public static final ConfigOptionList INIT_OFFSET = InitialOption("init_offset", Offset.ME);
         public static final ConfigOptionList INIT_DIRECTION = InitialOption("init_direction", Offset.ME);
-        public static final ConfigOptionList INIT_ANGEL = InitialOption("init_angel", Rotate.RIGHT_ANGLE);
+        public static final ConfigOptionList INIT_ANGEL = InitialOption("init_angel", Rotate.ANGEL_90);
+        public static final ConfigBoolean INIT_OTHER_ANGEL = InitialBoolean("init_angel_other");
+        public static final ConfigInteger INIT_INT_ANGEL = InitialInteger("init_int_angel", 0, 0, 360);
+        public static final ConfigString INIT_XYZ = InitialString("init_xyz","0 0 0");
         public static final ConfigBoolean INIT_A = InitialBoolean("init_a");
         public static final ConfigBoolean INIT_B = InitialBoolean("init_b");
         public static final ConfigBoolean INIT_E = InitialBoolean("init_e");
@@ -47,7 +50,7 @@ public class Configs implements IConfigHandler {
                 // Initial string
                 INIT_BLOCK, INIT_PLAYER,
                 // Initial option
-                INIT_OFFSET, INIT_DIRECTION, INIT_ANGEL,
+                INIT_OFFSET, INIT_DIRECTION, INIT_ANGEL, INIT_XYZ, INIT_OTHER_ANGEL, INIT_INT_ANGEL,
                 // Initial addon
                 INIT_A, INIT_B, INIT_E, INIT_R, INIT_S, INIT_M, INIT_M_BLOCK);
     }
@@ -69,7 +72,7 @@ public class Configs implements IConfigHandler {
     }
 
     private static ConfigInteger InitialInteger(String name, Integer defaultValue, Integer minValue, Integer maxValue) {
-        return new ConfigInteger("worldeditgui.generic." + name, defaultValue, minValue, maxValue, "worldeditgui.generic." + name + ".comment");
+        return new ConfigInteger("worldeditgui.generic." + name, defaultValue, minValue, maxValue, true, "worldeditgui.generic." + name + ".comment");
     }
 
     public static void saveToFile() {

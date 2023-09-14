@@ -22,12 +22,18 @@ public class Hotkey {
     public static final ConfigHotkey OFFSET_NORTHEAST = Hotkeys("offset_northeast");
     public static final ConfigHotkey OFFSET_NORTHWEST = Hotkeys("offset_northwest");
     public static final ConfigHotkey OFFSET_SOUTHEAST = Hotkeys("offset_southeast");
+    public static final ConfigHotkey OFFSET_SOUTHWEST = Hotkeys("offset_southwest");
     public static final List<ConfigHotkey> HOTKEY_LIST = ImmutableList.of(
             // generic
             OPEN_CONFIG, ADD_INIT_INTEGER, DECREASE_INIT_INTEGER,
             // offset
-            OFFSET_ME, OFFSET_BACK, OFFSET_LEFT, OFFSET_RIGHT, OFFSET_UP, OFFSET_DOWN, OFFSET_NORTH, OFFSET_EAST, OFFSET_SOUTH, OFFSET_WEST, OFFSET_NORTHEAST, OFFSET_NORTHWEST, OFFSET_SOUTHEAST);
+            OFFSET_ME, OFFSET_BACK, OFFSET_LEFT, OFFSET_RIGHT, OFFSET_UP, OFFSET_DOWN, OFFSET_NORTH, OFFSET_EAST, OFFSET_SOUTH, OFFSET_WEST, OFFSET_NORTHEAST, OFFSET_NORTHWEST, OFFSET_SOUTHEAST,OFFSET_SOUTHWEST);
 
+    /**
+     * 創建熱鍵的設定檔
+     * @param command 指令名稱
+     * @return  new ConfigHotkey
+     */
     private static ConfigHotkey Hotkeys(String command) {
         return new ConfigHotkey("worldeditgui.hotkey." + command, "", "worldeditgui.hotkey." + command + ".comment");
     }
