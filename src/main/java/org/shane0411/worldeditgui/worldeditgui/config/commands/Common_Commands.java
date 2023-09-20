@@ -17,15 +17,20 @@ public class Common_Commands {
     public static final ConfigBooleanHotkeyed STACK = BooleanHotkey("stack");
     public static final ConfigBooleanHotkeyed FLIP = BooleanHotkey("flip");
     public static final ImmutableList<ConfigBooleanHotkeyed> COMMANDS_HOTKEY = ImmutableList.of(
-            // Commands
-            UNDO, REDO, CLEAR, SET, COPY, PASTE, MOVE, MOVE_REPLACE, STACK, ROTATE, ROTATE_XYZ, FLIP);
-
-    /**
-     * 創建帶有熱鍵的布林按鈕之設定檔
-     * @param command 指令名稱
-     * @return  new ConfigBooleanHotkeyed
-     */
+            UNDO,
+            REDO,
+            CLEAR,
+            SET,
+            COPY,
+            PASTE,
+            MOVE,
+            MOVE_REPLACE,
+            STACK,
+            ROTATE,
+            ROTATE_XYZ,
+            FLIP
+    );
     private static ConfigBooleanHotkeyed BooleanHotkey(String command) {
-        return new ConfigBooleanHotkeyed("worldeditgui.common_commands." + command, false, "", "worldeditgui.common_commands." + command + ".comment");
+        return new ConfigBooleanHotkeyed("worldeditgui.common_commands." + command, false, "", "worldeditgui.commands." + command + ".comment");
     }
 }

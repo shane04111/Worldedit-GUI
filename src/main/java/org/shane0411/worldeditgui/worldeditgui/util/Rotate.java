@@ -4,9 +4,9 @@ import fi.dy.masa.malilib.config.IConfigOptionListEntry;
 import fi.dy.masa.malilib.util.StringUtils;
 
 public enum Rotate implements IConfigOptionListEntry {
-    ANGEL_90("90", "worldeditgui.rotate.90"),
-    ANGEL_180("180", "worldeditgui.rotate.180"),
-    ANGEL_270("270", "worldeditgui.rotate.270");
+    RIGHT_ANGLE     ("right_angle",     "worldeditgui.rotate.90"),
+    STRAIGHT_ANGLE  ("straight_angle",  "worldeditgui.rotate.180"),
+    DEGREE_ANGLE_270("degree_angle_270","worldeditgui.rotate.270");
     private final String configString;
     private final String unlocName;
 
@@ -52,6 +52,6 @@ public enum Rotate implements IConfigOptionListEntry {
                 return mode;
             }
         }
-        return Rotate.ANGEL_90;
+        return Rotate.RIGHT_ANGLE;
     }
 }

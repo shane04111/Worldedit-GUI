@@ -6,7 +6,6 @@ import fi.dy.masa.malilib.gui.button.ButtonBase;
 import fi.dy.masa.malilib.gui.button.ButtonGeneric;
 import fi.dy.masa.malilib.gui.button.IButtonActionListener;
 import fi.dy.masa.malilib.util.StringUtils;
-import net.minecraft.client.MinecraftClient;
 import org.shane0411.worldeditgui.worldeditgui.Reference;
 import org.shane0411.worldeditgui.worldeditgui.config.Configs;
 import org.shane0411.worldeditgui.worldeditgui.config.Hotkey;
@@ -109,12 +108,6 @@ public class GuiConfig extends GuiConfigsBase {
 
         public String getDisplayName() {
             return StringUtils.translate(this.translationKey);
-        }
-    }
-
-    public static void RePrintGui(){
-        if (MinecraftClient.getInstance().currentScreen instanceof GuiConfigsBase){
-            ((GuiConfigsBase) MinecraftClient.getInstance().currentScreen).initGui();
         }
     }
 }

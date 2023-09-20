@@ -30,6 +30,17 @@ public class Callbacks {
     private static final IKeybind offsetNorthwest = Hotkey.OFFSET_NORTHWEST.getKeybind();
     private static final IKeybind offsetSoutheast = Hotkey.OFFSET_SOUTHEAST.getKeybind();
     private static final IKeybind offsetSouthwest = Hotkey.OFFSET_SOUTHWEST.getKeybind();
+    private static final IKeybind  commandsUNDO      =Common_Commands.UNDO.getKeybind();
+    private static final IKeybind  commandsREDO      =Common_Commands.REDO.getKeybind();
+    private static final IKeybind  commandsCLEAR      =Common_Commands.CLEAR.getKeybind();
+    private static final IKeybind  commandsSET      =Common_Commands.SET.getKeybind();
+    private static final IKeybind  commandsCOPY      =Common_Commands.COPY.getKeybind();
+    private static final IKeybind  commandsPASTE      =Common_Commands.PASTE.getKeybind();
+    private static final IKeybind  commandsMOVE      =Common_Commands.MOVE.getKeybind();
+    private static final IKeybind  commandsROTATE      =Common_Commands.ROTATE.getKeybind();
+    private static final IKeybind  commandsROTATE_XYZ      =Common_Commands.ROTATE_XYZ.getKeybind();
+    private static final IKeybind  commandsSTACK      =Common_Commands.STACK.getKeybind();
+    private static final IKeybind  commandsFLIP      =Common_Commands.FLIP.getKeybind();
 
     public static void init(MinecraftClient minecraftClient) {
         IHotkeyCallback callbackGeneric = new KeyCallbackHotkeysGeneric(minecraftClient);
@@ -51,17 +62,17 @@ public class Callbacks {
         offsetSoutheast.setCallback(callbackGeneric);
         offsetSouthwest.setCallback(callbackGeneric);
 
-        Common_Commands.UNDO.getKeybind().setCallback(callbackGeneric);
-        Common_Commands.REDO.getKeybind().setCallback(callbackGeneric);
-        Common_Commands.CLEAR.getKeybind().setCallback(callbackGeneric);
-        Common_Commands.SET.getKeybind().setCallback(callbackGeneric);
-        Common_Commands.COPY.getKeybind().setCallback(callbackGeneric);
-        Common_Commands.PASTE.getKeybind().setCallback(callbackGeneric);
-        Common_Commands.MOVE.getKeybind().setCallback(callbackGeneric);
-        Common_Commands.ROTATE.getKeybind().setCallback(callbackGeneric);
-        Common_Commands.ROTATE_XYZ.getKeybind().setCallback(callbackGeneric);
-        Common_Commands.STACK.getKeybind().setCallback(callbackGeneric);
-        Common_Commands.FLIP.getKeybind().setCallback(callbackGeneric);
+        commandsUNDO.setCallback(callbackGeneric);
+        commandsREDO.setCallback(callbackGeneric);
+        commandsCLEAR.setCallback(callbackGeneric);
+        commandsSET.setCallback(callbackGeneric);
+        commandsCOPY.setCallback(callbackGeneric);
+        commandsPASTE.setCallback(callbackGeneric);
+        commandsMOVE.setCallback(callbackGeneric);
+        commandsROTATE.setCallback(callbackGeneric);
+        commandsROTATE_XYZ.setCallback(callbackGeneric);
+        commandsSTACK.setCallback(callbackGeneric);
+        commandsFLIP.setCallback(callbackGeneric);
     }
 
     public static class KeyCallbackHotkeysGeneric implements IHotkeyCallback {
